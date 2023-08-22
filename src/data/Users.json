@@ -1,6 +1,10 @@
 [
     {
         "user": "Sherlock Holmes",
+        "password": "MycroftIsDumb"
+    },
+    {
+        "user": "John Watson",
         "password": "FortKnox"
     }
 ]

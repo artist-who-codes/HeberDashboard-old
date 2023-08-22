@@ -5,69 +5,60 @@
             {
                 "name": "To check the Maggots",
                 "desc": "Check the Development of Maggots in -1 degree Celcius",
-                "creation": {
-                    "date": "2023-02-01",
-                    "hours": 12,
-                    "mins": 23,
-                    "secs": 40
-                },
-                "deadline": {
-                    "date": "2023-12-25",
-                    "hours": 12,
-                    "mins": 30
-                },
+                "creation": "2023-02-01T12:23:40.000Z",
+                "deadline": "2023-12-25T12:30:00.000Z",
                 "comments": [
                     "Try with Concenterated Hydrochloric Acid",
                     "Check Movements"
                 ],
-                "completion": 35,
+                "milestones": {
+                    "part1": true,
+                    "part2": true,
+                    "part3": true,
+                    "part5": false
+                },
                 "reminder": false
             },
             {
                 "name": "To check pupils in dead eye",
                 "desc": "Check it under Sunlight and Heat",
-                "creation": {
-                    "date": "2023-03-05",
-                    "hours": 10,
-                    "mins": 45,
-                    "secs": 56
-                },
-                "deadline": {
-                    "date": "2023-08-15",
-                    "hours": 10,
-                    "mins": 30
-                },
+                "creation": "2023-03-05T10:45:56.000Z",
+                "deadline": "2023-08-15T10:30:00.000Z",
                 "comments": [
                     "Try with Concenterated Hydrochloric Acid",
                     "Diluted Sulphuric Acid",
                     "Under microscope observation"
                 ],
-                "completion": 60,
+                "milestones": {
+                    "part1": true,
+                    "part2": true,
+                    "part5": false
+                },
                 "reminder": false
             },
             {
                 "name": "Testing Blood with Acetic acid",
                 "desc": "That killer is dead anyway",
-                "creation": {
-                    "date": "2023-03-06",
-                    "hours": 10,
-                    "mins": 50,
-                    "secs": 50
-                },
-                "deadline": {
-                    "date": "2023-08-09",
-                    "hours": 10,
-                    "mins": 30
-                },
+                "creation": "2023-03-06T10:50:50.000Z",
+                "deadline": "2023-08-09T10:30:00.000Z",
                 "comments": [
                     "Try with Concenterated Hydrochloric Acid",
                     "Diluted Sulphuric Acid",
                     "Under microscope observation"
                 ],
-                "completion": 20,
+                "milestones": {
+                    "part1": true,
+                    "part2": true,
+                    "part4": false,
+                    "part5": false
+                },
                 "reminder": false
             }
         ]
+    },
+    {
+        "user": "Mycroft Holmes",
+        "tasks": []
     },
     {
         "user": "John Watson",
@@ -75,66 +66,55 @@
             {
                 "name": "To check the Maggots",
                 "desc": "Check the Development of Maggots in -1 degree Celcius",
-                "creation": {
-                    "date": "2023-02-01",
-                    "hours": 12,
-                    "mins": 23,
-                    "secs": 40
-                },
-                "deadline": {
-                    "date": "2023-12-25",
-                    "hours": 12,
-                    "mins": 30
-                },
+                "creation": "2023-02-01T12:23:40.000Z",
+                "deadline": "2023-12-25T12:30:00.000Z",
                 "comments": [
                     "Try with Concenterated Hydrochloric Acid",
                     "Check Movements"
                 ],
-                "completion": 35,
+                "milestones": {
+                    "part2": true,
+                    "part3": true,
+                    "part4": false,
+                    "part5": false
+                },
                 "reminder": false
             },
             {
                 "name": "To check pupils in dead eye",
                 "desc": "Check it under Sunlight and Heat",
-                "creation": {
-                    "date": "2023-03-05",
-                    "hours": 10,
-                    "mins": 45,
-                    "secs": 56
-                },
-                "deadline": {
-                    "date": "2023-08-15",
-                    "hours": 10,
-                    "mins": 30
-                },
+                "creation": "2023-03-05T10:45:56.000Z",
+                "deadline": "2023-08-15T10:30:00.000Z",
                 "comments": [
                     "Try with Concenterated Hydrochloric Acid",
                     "Diluted Sulphuric Acid",
                     "Under microscope observation"
                 ],
-                "completion": 60,
+                "milestones": {
+                    "part1": true,
+                    "part2": true,
+                    "part3": true,
+                    "part5": false
+                },
                 "reminder": false
             },
             {
                 "name": "Testing Blood with Acetic acid",
                 "desc": "That killer is dead anyway",
-                "creation": {
-                    "date": "2023-03-06",
-                    "hours": 10,
-                    "mins": 50,
-                    "secs": 50
-                },
-                "deadline": {
-                    "date": "2023-08-09",
-                    "hours": 10,
-                    "mins": 30
-                },
+                "creation": "2023-03-06T10:50:50.000Z",
+                "deadline": "2023-08-09T10:30:00.000Z",
                 "comments": [
                     "Try with Concenterated Hydrochloric Acid",
                     "Diluted Sulphuric Acid",
                     "Under microscope observation"
                 ],
-                "completion": 20,
+                "milestones": {
+                    "part1": true,
+                    "part2": true,
+                    "part3": false,
+                    "part4": false,
+                    "part5": false
+                },
                 "reminder": false
             }
         ]

@@ -7,12 +7,11 @@ export async function GET(request: Request) {
     try {
         const client = new MongoClient(uri);
         await client.connect();
-        console.log('Connected to MongoDB');
         const database = client.db('Task-1');
-        const Taskies = database.collection('Taskies');
+        const Taskies = database.collection('TaskiesUsers');
         const data = await Taskies.find().toArray();
         let response = {
-            tasks: data
+            users: data
         }
         return NextResponse.json(response);
     }
