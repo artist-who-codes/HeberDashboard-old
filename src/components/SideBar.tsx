@@ -16,7 +16,7 @@ export default function SideBar() {
                 <div className="flex flex-col gap-10">
                     <Link href="/"><Image src={Home} alt="Menu" width={25}></Image></Link>
                     <Link href="/"><Image src={Analytics} alt="Menu" width={25}></Image></Link>
-                    <Link href="/"><Image src={Tasks} alt="Menu" width={25}></Image></Link>
+                    <Link href="/FTasks"><Image src={Tasks} alt="Menu" width={25}></Image></Link>
                     <Link href="/"><Image src={Settings} alt="Menu" width={25}></Image></Link>
                 </div>
             </div>

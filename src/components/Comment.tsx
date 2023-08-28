@@ -22,8 +22,9 @@ const Comment = ({ comments }: Props) => {
                     {(onClose) => (
                         <>
                             <ModalHeader className="flex flex-col gap-1">Comments</ModalHeader>
-                            <ModalBody>
+                            <ModalBody >
                                 <div>
+
                                     {comments.map((comment, key) => {
                                         return (<p key={key}>{key + 1}. {comment}</p>)
                                     })}
@@ -32,9 +33,6 @@ const Comment = ({ comments }: Props) => {
                             <ModalFooter>
                                 <Button color="danger" variant="light" onClick={onClose}>
                                     Close
-                                </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    Action
                                 </Button>
                             </ModalFooter>
                         </>

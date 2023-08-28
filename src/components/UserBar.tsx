@@ -4,10 +4,11 @@ import Calendar from "./Calandar"
 import Quotes from "../data/Quotes"
 import Link from "next/link"
 import { FormatDate } from "@/utils/utillities"
-type Props = { date: Date }
+type Props = { date: Date | null }
 
 const UserBar = ({ date }: Props) => {
-    const FormattedDate = FormatDate(date)
+    var FormattedDate
+    if (date != null) { FormattedDate = FormatDate(date) }
     const index = Math.floor(Math.random() * 50);
     return (
         <div className="w-[25vw] h-[100vh] bg-[#f3f4f8] p-7 flex flex-col gap-5">
@@ -16,7 +17,7 @@ const UserBar = ({ date }: Props) => {
             </div>
             <div>
                 <Calendar date1={date} />
-                <div className="py-2 ">Next Task Deadline : <b>{FormattedDate}</b></div>
+                {date != null ? <div className="py-2 ">Next Task Deadline : <b>{FormattedDate}</b></div> : <div className="py-2 ">Add Your task to See Deadlines</div>}
             </div>
             <div>
                 <hr className="border-t-2 border-[#6466F1]/20"></hr>
@@ -32,5 +33,6 @@ const UserBar = ({ date }: Props) => {
             </div>
         </div>
     )
+
 }
 export default UserBar

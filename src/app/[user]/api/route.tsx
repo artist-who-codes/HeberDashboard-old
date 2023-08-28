@@ -1,3 +1,4 @@
+
 import { MongoClient } from 'mongodb';
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from 'next/cache';
@@ -53,6 +54,69 @@ export async function POST(request: NextRequest,
     }
     catch (error) {
         console.log(error)
+    }
+
+}
+export async function DELETE(request: NextRequest,
+    { params }: { params: { user: string } }) {
+    const data = await request.json();
+    const taskName = data
+    const User = params.user
+    const client = new MongoClient(uri);
+    await client.connect();
+    const database = client.db('Task-1');
+    const Taskies = database.collection('Taskies');
+    try {
+        const result = await Taskies.updateOne(
+            { "user": User }, // Filter condition to find the task
+            { $pull: { "tasks": { "name": taskName } } }  // Update the milestones
+        );
+
+        return NextResponse.json(result)
+    }
+    catch (error) {
+        console.log(error)
+    }
+    finally {
+        await client.close();
+    }
+
+}
+export async function PUT(request: NextRequest,
+    { params }: { params: { user: string } }) {
+    const data = await request.json();
+    console.log(data)
+    const Milestones = data.milestones.split(',')
+    const Comments = data.comments.split(',')
+    const combinedDateTime = `${data.deadlineDate}T${data.deadlineTime}:00`;
+    const Deadline = new Date(combinedDateTime);
+    const Creation = new Date()
+    const onetask = {
+        name: data.name,
+        desc: data.desc,
+        creation: Creation,
+        completion: '',
+        deadline: Deadline,
+        comments: Comments,
+        milestones: Milestones,
+        reminder: false
+    }
+    const client = new MongoClient(uri);
+    await client.connect();
+    const database = client.db('Task-1');
+    const Taskies = database.collection('Taskies');
+    try {
+        const result = await Taskies.updateOne(
+            { "user": data.user }, // Filter condition to find the task
+            { $push: { "tasks": onetask } } // Update the milestones
+        );
+        return NextResponse.json(result)
+    }
+    catch (error) {
+        console.log(error)
+    }
+    finally {
+        await client.close();
     }
 
 }

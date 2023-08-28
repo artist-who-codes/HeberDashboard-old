@@ -1,5 +1,5 @@
 import { getThisWeek } from '../utils/utillities'
-type Props = { date1: Date }
+type Props = { date1: Date | null }
 
 const Calendar = ({ date1 }: Props) => {
     const today = new Date()
@@ -8,7 +8,7 @@ const Calendar = ({ date1 }: Props) => {
         "July", "August", "September", "October", "November", "December"];
     const ThisWeek = getThisWeek()
     var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    var bg
+
 
     return (
         <div className='mt-4'>
@@ -16,14 +16,24 @@ const Calendar = ({ date1 }: Props) => {
             <div className='flex gap-3'>
                 {ThisWeek.map((day) => {
                     var style
-                    if (today.getUTCDate() === day.getUTCDate()) {
-                        style = `font-semibold bg-[#6466F1] rounded-full text-white w-10 h-10 p-2.5 shadow-lg`
-                    }
-                    else if (date1.getUTCDate() === day.getUTCDate()) {
-                        style = "font-semibold p-2 rounded-full w-8.5 h-8.5 ring-2 ring-[#52DB50]"
+                    if (date1 != null) {
+                        if (today.getUTCDate() === day.getUTCDate()) {
+                            style = `font-semibold bg-[#6466F1] rounded-full text-white w-10 h-10 p-2.5 shadow-lg`
+                        }
+                        else if (date1.getUTCDate() === day.getUTCDate()) {
+                            style = "font-semibold p-2 rounded-full w-8.5 h-8.5 ring-2 ring-[#52DB50]"
+                        }
+                        else {
+                            style = `font-semibold p-2.5`
+                        }
                     }
                     else {
-                        style = `font-semibold p-2.5`
+                        if (today.getUTCDate() === day.getUTCDate()) {
+                            style = `font-semibold bg-[#6466F1] rounded-full text-white w-10 h-10 p-2.5 shadow-lg`
+                        }
+                        else {
+                            style = `font-semibold p-2.5`
+                        }
                     }
                     return (
                         <div className='flex flex-col items-center text-sm'>

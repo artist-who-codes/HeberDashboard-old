@@ -20,3 +20,23 @@ export async function GET(request: Request) {
         return (error)
     }
 }
+export async function PUT(request: Request,) {
+    const data = await request.json();
+    const User = data.user
+    const client = new MongoClient(uri);
+    await client.connect();
+    const database = client.db('Task-1');
+    const TaskiesUsers = database.collection('TaskiesUsers');
+    const Taskies = database.collection('Taskies');
+    const task = { user: User, tasks: [] }
+    try {
+        const result = await TaskiesUsers.insertOne(data);
+        await Taskies.insertOne(task)
+        return NextResponse.json(result)
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
+
