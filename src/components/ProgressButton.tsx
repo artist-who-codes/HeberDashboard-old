@@ -66,7 +66,7 @@ const ProgressButton = ({ tasks }: Props) => {
 
     return (
         <div>
-            <Button onPress={() => handleOpen()} className='bg-[#4B50F7]/10 border-1 border-[#4B50F7] rounded-lg flex  h-10 py-2 px-5 gap-2 my-3' ><Image src={Chart} width={33} alt="Plus" className='-mt-1'></Image><p className="-mt-1"> Your Progress</p></Button>
+            <Button onPress={() => handleOpen()} className='bg-[#4B50F7]/10 border-1 border-[#4B50F7] rounded-lg flex  h-10 py-2 px-5 gap-2 my-3' ><Image src={Chart} width={33} alt="Plus" className='-mt-1'></Image><p className="mt-0.5"> Your Progress</p></Button>
             <Modal
                 size='md'
                 isOpen={isOpen}

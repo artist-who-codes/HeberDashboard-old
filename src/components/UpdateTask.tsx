@@ -39,7 +39,7 @@ const UpdateTask = ({ task }: Props) => {
         const data = { milestones: newMilestones, name: Name, completion: today };
         try {
             const res = await fetch(`${pathname}/api`, {
-                method: "PUT",  // Use "PUT" or "POST" depending on your API design
+                method: "POST",  // Use "PUT" or "POST" depending on your API design
                 body: JSON.stringify(data),
                 next: { revalidate: 1 }
             });

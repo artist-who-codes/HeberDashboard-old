@@ -37,26 +37,28 @@ export function FormatDate(Date1: Date) {
 
 export function GetDay(date: Date) {
     const now = new Date();
-    const deadline = new Date(date)
-    const Now = ToLocalTime(now)
-    const hoursleft = TimeDifference(deadline, Now)
-    const daysLeft = Math.abs(hoursleft / 24)
-    var DString: string
+    const deadline = new Date(date);
 
-    if (hoursleft < 0) {
-        DString = "Crossed Deadline"
+    // Remove the time component from the dates
+    const nowDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const deadlineDate = new Date(deadline.getFullYear(), deadline.getMonth(), deadline.getDate());
+
+    // Calculate the difference in days
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    const daysDifference = Math.ceil((deadlineDate.getTime() - nowDate.getTime()) / millisecondsPerDay);
+
+    if (daysDifference < 0) {
+        return "Crossed Deadline";
+    } else if (daysDifference === 0) {
+        return "Today";
+    } else if (daysDifference === 1) {
+        return "Tomorrow";
+    } else {
+        return FormatDate(deadline);
     }
-    else if (daysLeft < 1) {
-        DString = "Today";
-    }
-    else if (daysLeft === 1) {
-        DString = "Tomorrow"
-    }
-    else {
-        DString = FormatDate(deadline)
-    }
-    return DString
 }
+
+
 export function getProgress(Milestones: MilestoneType) {
     const totalValues = Object.keys(Milestones).length;
     const trueValues = Object.values(Milestones).filter((value) => (value)).length;
@@ -101,7 +103,7 @@ export function getLeastDeadline(Tasks: TaskType[]) {
         const dateObject = new Date(date);
         const difference = TimeDifference(dateObject, currentDate)
 
-        if (difference < minDifference) {
+        if (difference < minDifference && difference > 0) {
             minDifference = difference;
             nearestDate = dateObject;
         }

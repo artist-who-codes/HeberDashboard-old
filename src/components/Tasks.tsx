@@ -20,7 +20,7 @@ const tasks = ({ args }: Props) => {
 
     return (
         <div>
-            <div className="grid grid-cols-2 gap-5 m-7">
+            <div className="grid grid-cols-2 gap-5 my-7 mx-20">
                 {args.map((task, key) => {
                     const percentage = getProgress(task.milestones)
                     if (percentage != 100) {
@@ -58,7 +58,7 @@ const tasks = ({ args }: Props) => {
             {finished.length != 0 ?
                 <div>
                     <hr className="w-[67vw]"></hr>
-                    <div className=" m-7">
+                    <div className=" my-7 mx-20">
                         <h2 className="text-3xl font-semibold">Finished Tasks</h2>
                         <div className="grid grid-cols-2 gap-5 my-2">
                             {finished.map((task, key) => {
@@ -83,6 +83,11 @@ const tasks = ({ args }: Props) => {
                                             <div>
                                                 <Progress percent={percentage} />
                                             </div>
+
+                                        </div>
+                                        <div className="grid grid-flow-col justify-stretch gap-5 pt-5">
+                                            <DeleteTask task={task} />
+                                            <UpdateTask task={task} />
                                         </div>
                                     </div>
                                 )

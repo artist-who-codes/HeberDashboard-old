@@ -2,6 +2,7 @@
 import { MongoClient } from 'mongodb';
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from 'next/cache';
+import { MilestoneType } from '@/types/MilestoneType';
 
 const uri = "mongodb://localhost:27017"
 
@@ -36,6 +37,7 @@ export async function POST(request: NextRequest,
     { params }: { params: { user: string } }) {
     const data = await request.json();
     const newMilestones = data.milestones
+    console.log(newMilestones)
     const Name = data.name
     const User = params.user
     const client = new MongoClient(uri);
@@ -86,7 +88,11 @@ export async function PUT(request: NextRequest,
     { params }: { params: { user: string } }) {
     const data = await request.json();
     console.log(data)
-    const Milestones = data.milestones.split(',')
+    const milestones = data.milestones.split(',')
+    const Milestones: MilestoneType = {};
+    for (const key of milestones) {
+        Milestones[key] = false;
+    }
     const Comments = data.comments.split(',')
     const combinedDateTime = `${data.deadlineDate}T${data.deadlineTime}:00`;
     const Deadline = new Date(combinedDateTime);

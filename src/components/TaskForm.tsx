@@ -40,7 +40,7 @@ export default function TaskForm() {
     }
     return (
         <div>
-            <Button onPress={() => handleOpen()} className='bg-[#4B50F7]/10 border-1 border-[#4B50F7] rounded-lg flex  h-10 py-2 px-5 gap-2 my-3'><Image src={Plus} width={20} alt="Plus"></Image><p className="-mt-1"> Add Taskies</p></Button>
+            <Button onPress={() => handleOpen()} className='bg-[#4B50F7]/10 border-1 border-[#4B50F7] rounded-lg flex  h-10 py-2 px-5 gap-2 my-3'><Image src={Plus} width={20} alt="Plus"></Image><p className="mt-0.5"> Add Taskies</p></Button>
             <Modal
                 size='3xl'
                 isOpen={isOpen}

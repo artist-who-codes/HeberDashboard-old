@@ -11,7 +11,7 @@ const UserBar = ({ date }: Props) => {
     if (date != null) { FormattedDate = FormatDate(date) }
     const index = Math.floor(Math.random() * 50);
     return (
-        <div className="w-[25vw] h-[100vh] bg-[#f3f4f8] p-7 flex flex-col gap-5">
+        <div className="w-[25vw] h-[100vh] bg-[#f3f4f8] p-7 flex flex-col gap-5 fixed">
             <div>
                 <Image src={Completed} alt="svg" width={300}></Image>
             </div>
@@ -28,7 +28,6 @@ const UserBar = ({ date }: Props) => {
                 <hr className="border-t-2 border-[#6466F1]/20"></hr>
             </div>
             <div className="flex justify-center">
-
                 <button className="bg-[#6466F1] rounded-lg text-white py-2 text-sm w-[15vh]"><Link href="/">Log Out</Link></button>
             </div>
         </div>

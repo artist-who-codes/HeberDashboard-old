@@ -37,6 +37,7 @@ export default async function Page({ params }: { params: { user: string } }) {
     const Hour = today.getUTCHours()
     var greeting: string
     var deadline = getLeastDeadline(Tasks)
+    console.log(deadline)
 
     if (Hour >= 0 && Hour < 12) {
         greeting = "Good Morning";
@@ -49,19 +50,19 @@ export default async function Page({ params }: { params: { user: string } }) {
     }
     return (
         <div className='flex'>
-            <div>
-                <h1 className='bg-[#f7f9fa] px-10 py-5 leading-8 w-[70vw] flex justify-between'>
+            <div className='w-[75vw]'>
+                <h1 className='bg-[#f7f9fa] px-20 py-5 leading-8 w-[75vw] flex justify-between'>
                     <div>
                         <span className='text-4xl font-bold'>{greeting}!</span><br></br>
-                        <span className='text-md font-medium text-[#a7a9d2]'>Here is your List of Taskies {User}</span>
+                        <span className='text-md font-medium text-[#a7a9d2]'>Here is your List of Tasks <span className='text-[#4B50F7]'>{User}</span></span>
                     </div>
                     <div className='flex gap-5'>
-                        <TaskForm />
+                        {/* <TaskForm /> */}
                         <ProgressButton tasks={Tasks} />
                     </div>
                 </h1>
                 {Tasks.length !== 0 ?
-                    <div>
+                    <div className=''>
                         <TasksDisplay args={Tasks} />
                     </div> :
                     <div><NoTasks /></div>}
