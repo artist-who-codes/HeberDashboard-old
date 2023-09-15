@@ -70,7 +70,7 @@ const UpdateTask = ({ task }: Props) => {
                             <ModalHeader className="flex flex-col gap-1">Milestones</ModalHeader>
                             <ModalBody>
                                 <div>
-                                    <h1 className='text-lg font-bold'>Update What You've Completed!</h1>
+                                    <h1 className='text-lg font-bold'>Update What You&apos;ve Completed!</h1>
                                     <div className='mx-10 my-5'>{keys.map((Key, key) => { return (<div key={key}><Checkbox value={Key} defaultSelected={values[key]} onChange={handleChange}>{Key}</Checkbox><br></br></div>) })}</div>
                                 </div>
                             </ModalBody>
